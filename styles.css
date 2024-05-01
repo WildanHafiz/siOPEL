@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+main{
+    background-image: url('https://plus.unsplash.com/premium_photo-1681451653242-5e6107b35619?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: contain;
+    color: #ededed;
+
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 13%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+/* NAVBAR */
+.logo{
+    font-size: 30px;
+    color: #113f41;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.navbar .a{
+    font-size: 20px;
+    color: #258f94;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 30px;
+    transition: .3s;
+}
+.navbar .a:hover, 
+.navbar .a.active{
+    color: #258f94;
+    font-size: 27px;
+}
+
+.logout {
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 30px;
+    transition: .3s;
+    padding: 5px 20px;
+    border-radius: 16px;
+    background-color: #258f94;
+}
+/* END NAVBAR */
+
+/* SECTION */
+#home{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(37, 143, 148, 0.5);
+}
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 600px;
+}
+.home-content h1{
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1,2;
+}
+.home-content h3{
+    font-size: 24px;
+    font-weight: 700;
+    color: #113f41;
+}
+.home-content p{
+    font-size: 14px;
+    margin: 10px 0 20px;
+    margin-block: 2rem;
+}
+.home-content .btn-box{
+    display: flex;
+    width: 345px;
+    height: 50px;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.btn-box a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 100%;
+    background: #258f94;
+    border: 2px solid white;
+    border-radius: 8px;
+    font-size: 18px;
+    color:black;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+    overflow: hidden;
+}
+.btn-box a:nth-child(1){
+    background: transparent;
+    color: white;
+}
+.btn-box a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background:white;
+    z-index: -1;
+    transition: .5s;
+}
+.btn-box a:hover::before{
+    width: 100%;
+    
+}
+.btn-box a:nth-child(1):hover{
+    color: #258f94;
+}
+
+/* END SECTION */
+
+/* SECTION 2 */
+#about{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    color: #258f94;
+    background-color: white;
+}
+
+.about{
+    max-width: 600px;
+}
+.about h1{
+    position: relative;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.about p{
+    position: relative;
+    font-size: 16px;
+    margin: 20px 0 40px;
+    text-align: justify;
+}
+/* END SECTION 2 */
+
+.flow{
+    padding: 80px 0;
+    text-align: center;
+}
+.flow h2{
+    margin-bottom: 50px;
+    font-size: 28px;
+    letter-spacing: 1;
+    color:#ededed;
+}
+.flow img{
+    width: 400px;
+    height: 600px;
+}
+
+/* FOOTER */
+footer{
+    color: #ededed;
+    padding: 20px;
+    text-align: center;
+}
+.contact-info{
+    margin-top: 60px;
+}
+.contact-info h2{
+    font-size: 28px;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+.contact-info ul{
+    list-style-type: none;
+    padding: 0;
+}
+.contact-info ul li{
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+.contact-info ul li i{
+    margin-right: 8px;
+}
+.copyright{
+    color: #a8a7a7;
+    margin-top: 20px;
+    font-size: 10px;
+}
+/* END FOOTER */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html{
+    scroll-behavior: smooth;
+    animation-delay: 1ms;
+}
