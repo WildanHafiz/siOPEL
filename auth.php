@@ -36,22 +36,22 @@ function init_login() {
 function validate() {
     if (!isset($_SESSION['login']) || !isset($_SESSION['time']) ) { 
     ?>
-    <div class='container'>
+    <div class='containerr'>
         <h1 class='header1'>LOGIN</h1>
-        <div class="login">
+        <div class="loginn">
             <form action="" method="post">
                 <table>
                     <tr>
                         <td>Username</td>
-                        <td><input class="input" type="text" name="nama" /></td>
+                        <td><input class="inputtt" type="text" name="nama" /></td>
                     </tr>
                     <tr>
                         <td>Password</td>
-                        <td><input class="input" type="password" name="pass" /></td>
+                        <td><input class="inputtt" type="password" name="pass" /></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td><input class="button" type="submit" value="LOGIN" /></td>
+                        <td><input class="buttonnnn" type="submit" value="LOGIN" /></td>
                     </tr>
                 </table>
             </form>

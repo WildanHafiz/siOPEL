@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SIOPEL</title>
     <link rel="stylesheet" href="./styles.css">
     <style>
-        .container {
+         main{
+    background-image: url('https://cdn.pixabay.com/photo/2022/08/09/16/19/sea-7375377_960_720.jpg');
+    background-size: contain;
+    color: #ededed;
+
+}
+        #about{
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 10%;
+            color: #258f94;
+            background-color: white;
+        }
+
+
+        .containerr {
             display: flex;
             flex-direction: column;
             height: 100vh;
@@ -20,7 +38,7 @@
             font-size: 50px;
             margin-block: 1rem;
         }
-        .login {
+        .loginn {
             background-color: white;
             padding: 20px;
             width: 20%;
@@ -30,7 +48,7 @@
             transform: translateY(-10%);
         }
 
-        .input {
+        .inputtt {
             border-radius: 16px;
             border: none;
             padding: 1rem;
@@ -38,7 +56,7 @@
             margin-top: 10px;
         }
 
-        .button {
+        .buttonnnn {
             font-size: 20px;
             border: none;
             background-color: #258f94;
@@ -49,6 +67,14 @@
             margin-block: 15px ;
             cursor: pointer;
             text-decoration: none;
+        }
+
+        .video {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
     </style>
 </head>
@@ -95,8 +121,21 @@
             <p>Sistem informasi pelestarian ekosistem laut adalah platform yang menyediakan data dan informasi terkait kondisi, kesehatan, dan keberlanjutan ekosistem laut. Ini mencakup informasi tentang spesies laut, habitat, pola migrasi, ancaman lingkungan, kebijakan konservasi, serta upaya pelestarian dan pemulihan. Tujuannya adalah untuk memantau, mengelola, dan melindungi keanekaragaman hayati serta sumber daya alam laut untuk menjaga keseimbangan ekosistem dan mendukung keberlangsungan hidup manusia.
             </p>
         </div>
+
+        <!-- VIDEO -->
+        <div class="video">
+            <h2>Introduction Video</h2>
+            <div>
+                <video width="560" height="315" controls>
+                    <source src="laut.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
     </section>
     <!-- END SECTION 2-->
+
+    
 
 
     <!-- FOOTER -->

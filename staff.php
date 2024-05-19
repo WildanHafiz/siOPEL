@@ -5,53 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/c
+    ss/bootstrap.min.css" integrity="sha384-
+    Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263X
+    mFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
     <style>
-        .container {
+        main{
+        background-image: url('https://cdn.pixabay.com/photo/2023/12/08/08/58/sea-8437245_960_720.jpg');
+        background-size: contain;
+        color: #ededed;
+        }
+        .aboutstaff{
+            height: 85vh;
+            background-color: white;
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            background-color: rgb(128, 128, 128, 0.5);
-            justify-content: center;
             align-items: center;
+            padding: 100px 100px;
+            color: #258f94;
         }
 
-        .header1{
-            transform: translateY(-10%);
-            font-size: 50px;
-            margin-block: 1rem;
-        }
-        .login {
-            background-color: white;
-            padding: 20px;
-            width: 20%;
-            border: 1px solid gray;
-            border-radius: 20px;
-            color: gray;
-            transform: translateY(-10%);
-        }
-
-        .input {
-            border-radius: 16px;
-            border: none;
-            padding: 1rem;
-            margin-left: 15px;
-            margin-top: 10px;
-        }
-
-        .button {
-            font-size: 20px;
-            border: none;
+        .footer{
             background-color: #258f94;
-            color: white;
-            padding: 1rem;
-            width: 100px;
-            border-radius: 16px;
-            margin-block: 15px ;
-            cursor: pointer;
-            text-decoration: none;
         }
     </style>
-</head>
+    </head>
 <body>
     
     <?php
@@ -89,11 +70,124 @@
     <!-- END SECTION -->
 
     <!-- SECTION 2 -->
-    <section id="about">
-        <div class="about">
-            <h1>Staff Access</h1>
+    <section id="aboutstaff">
+        <div class="aboutstaff">
+            <h1><b>Staff Access</b></h1>
             <p>Ini adalah akses staff. Anda dapat melakukan penyesuaian dan perubahan sesuai kebutuhan pelestarian laut.
             </p>
+            <div class="d-flex gap-5 mt-5">
+                <div class="table-responsive d-flex flex-column align-items-center">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Biota</th>
+                                <th scope="col">Jumlah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            include_once("./koneksi.php");
+                            $query = "SELECT * FROM karang";
+                            $hasil = mysqli_query($conn, $query);
+                            while ($data = mysqli_fetch_array($hasil)) {
+                                echo "<tr>";
+                                echo "<th scope='row'>" . $data['no'] . "</th>";
+                                echo "<td>" . $data['biota_laut'] . "</td>";
+                                echo "<td>" . $data['jumlah'] . "</td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                    <a href="tambahadmin.php" class="btn btn-success mb-1 mt-1 "><i class="fas fa-user-plus mr-2"></i>Tambah Biota</a>
+                </div>
+
+                <div class="d-flex gap-5">
+                    <div class="table-responsive d-flex flex-column align-items-center">
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Ikan</th>
+                                    <th scope="col">Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                include_once("./koneksi.php");
+                                $query = "SELECT * FROM ikan";
+                                $hasil = mysqli_query($conn, $query);
+                                while ($data = mysqli_fetch_array($hasil)) {
+                                    echo "<tr>";
+                                    echo "<th scope='row'>" . $data['no'] . "</th>";
+                                    echo "<td>" . $data['jenis_ikan'] . "</td>";
+                                    echo "<td>" . $data['jumlah'] . "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <a href="tambahadmin.php" class="btn btn-success mb-1 mt-1 "><i class="fas fa-user-plus mr-2"></i>Tambah Biota</a>
+                    </div>
+                </div>
+                
+                <div class="d-flex gap-5">
+                    <div class="table-responsive d-flex flex-column align-items-center">
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Quality Scope</th>
+                                    <th scope="col">Area</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                include_once("./koneksi.php");
+                                $query = "SELECT * FROM quality2";
+                                $hasil = mysqli_query($conn, $query);
+                                while ($data = mysqli_fetch_array($hasil)) {
+                                    echo "<tr>";
+                                    echo "<th scope='row'>" . $data['quality_scope'] . "</th>";
+                                    echo "<td>" . $data['area'] . "</td>";
+                                    echo "<td>" . $data['status'] . "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <a href="tambahadmin.php" class="btn btn-success mb-1 mt-1 "><i class="fas fa-user-plus mr-2"></i>Tambah Data</a>
+                    </div>
+                </div>
+
+                <div class="d-flex gap-5">
+                    <div class="table-responsive d-flex flex-column align-items-center">
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Sensors</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                include_once("./koneksi.php");
+                                $query = "SELECT * FROM sensors";
+                                $hasil = mysqli_query($conn, $query);
+                                while ($data = mysqli_fetch_array($hasil)) {
+                                    echo "<tr>";
+                                    echo "<th scope='row'>" . $data['sensor_name'] . "</th>";
+                                    echo "<td>" . $data['status'] . "</td>";
+                                    echo "</tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                        <a href="tambahadmin.php" class="btn btn-success mb-1 mt-1 "><i class="fas fa-user-plus mr-2"></i>Tambah Data</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <!-- END SECTION 2-->

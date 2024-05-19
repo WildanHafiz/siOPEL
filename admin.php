@@ -5,53 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
-    <style>
-        .container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            background-color: rgb(128, 128, 128, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .header1{
-            transform: translateY(-10%);
-            font-size: 50px;
-            margin-block: 1rem;
-        }
-        .login {
-            background-color: white;
-            padding: 20px;
-            width: 20%;
-            border: 1px solid gray;
-            border-radius: 20px;
-            color: gray;
-            transform: translateY(-10%);
-        }
-
-        .input {
-            border-radius: 16px;
-            border: none;
-            padding: 1rem;
-            margin-left: 15px;
-            margin-top: 10px;
-        }
-
-        .button {
-            font-size: 20px;
-            border: none;
-            background-color: #258f94;
-            color: white;
-            padding: 1rem;
-            width: 100px;
-            border-radius: 16px;
-            margin-block: 15px ;
-            cursor: pointer;
-            text-decoration: none;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/c
+    ss/bootstrap.min.css" integrity="sha384-
+    Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263X
+    mFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
 </head>
+
+<style>
+    .tabeladmin{
+        border: 1px solid black;
+    }
+
+    .footer{
+            background-color: #258f94;
+        }
+</style>
 <body>
     
     <?php
@@ -89,13 +60,79 @@
     <!-- END SECTION -->
 
     <!-- SECTION 2 -->
-    <section id="about">
-        <div class="about">
-            <h1>ADMIN Access</h1>
-            <p>Ini adalah akses SuperAdmin. Anda dapat melakukan apapun sebagai berikut :
-            </p>
+    <section id="about" class="d-flex flex-column pt-5">
+    <div class="about">
+        <h1>ADMIN Access</h1>
+        <p>Ini adalah akses SuperAdmin. Anda dapat melakukan apapun sebagai berikut :</p>
+    </div>
+    <div class="d-flex m-5">
+        <div class="d-flex flex-column gap-3 ml-5">
+            <div class="d-flex gap-5">
+                <div class="table-responsive d-flex flex-column align-items-center">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">ID Staff</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            include_once("./koneksi.php");
+                            $query = "SELECT * FROM staff";
+                            $hasil = mysqli_query($conn, $query);
+                            while ($data = mysqli_fetch_array($hasil)) {
+                                echo "<tr>";
+                                echo "<th scope='row'>" . $data['no'] . "</th>";
+                                echo "<td>" . $data['id_staff'] . "</td>";
+                                echo "<td>" . $data['name'] . "</td>";
+                                echo "<td>" . $data['role'] . "</td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                    <a href="tambahadmin.php" class="btn btn-primary mb-1 mt-1 "><i class="fas fa-user-plus mr-2"></i>Tambah staff</a>
+                </div>
+
+                <div class="table-responsive d-flex flex-column align-items-center">
+                    <table class="table table-bordered table-striped">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">ID Admin</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            include_once("./koneksi.php");
+                            $query = "SELECT * FROM admins";
+                            $hasil = mysqli_query($conn, $query);
+                            while ($data = mysqli_fetch_array($hasil)) {
+                                echo "<tr>";
+                                echo "<th scope='row'>" . $data['id_admin'] . "</th>";
+                                echo "<td>" . $data['name'] . "</td>";
+                                echo "<td>" . $data['role'] . "</td>";
+                                echo "<td>";
+                                echo "<a href='editadmin.php?id=" . $data['id_admin'] . "' class='btn btn-sm btn-warning'>Edit</a> ";
+                                echo "<a href='deleteadmin.php?id=" . $data['id_admin'] . "' class='btn btn-sm btn-danger'>Delete</a>";
+                                echo "</td>";
+                                echo "</tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                    <a href="tambahadmin.php" class="btn btn-primary mb-1 mt-1"><i class="fas fa-user-plus mr-2"></i>Tambah Admin</a>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
     <!-- END SECTION 2-->
 
 
@@ -107,5 +144,6 @@
         </div>
     </footer>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
