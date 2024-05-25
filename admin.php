@@ -126,7 +126,15 @@
                             ?>
                         </tbody>
                     </table>
-                    <a href="tambahadmin.php" class="btn btn-primary mb-1 mt-1"><i class="fas fa-user-plus mr-2"></i>Tambah Admin</a>
+                    <div>
+                        <a href="tambahadmin.php" class="btn btn-primary mb-1 mt-1"><i class="fas fa-user-plus mr-2"></i>Tambah Admin</a>
+                        <div class="float-right">
+                            <a href="printadmin.php" target="_blank" class="btn btn-success"><i class="fa fa-file-pdf-o"></i> &nbsp PRINT</a>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
