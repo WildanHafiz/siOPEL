@@ -13,11 +13,16 @@
     mFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
     <style>
+         body{
+            background-image: url('https://images.pexels.com/photos/1139962/pexels-photo-1139962.jpeg');
+            background-size: cover;
+            color: #ededed;
+        }
          main{
-    background-image: url('https://images.pexels.com/photos/1139962/pexels-photo-1139962.jpeg');
-    background-size: contain;
-    color: #ededed;
-}
+            background-image: url('https://images.pexels.com/photos/1139962/pexels-photo-1139962.jpeg');
+            background-size: contain;
+            color: #ededed;
+        }
         #about{
             height: 100vh;
             display: flex;
@@ -36,7 +41,7 @@
         .containerr {
             display: flex;
             flex-direction: column;
-            height: 720px;
+            height: 100vh;
             background-color: rgb(128, 128, 128, 0.5);
             justify-content: center;
             align-items: center;
