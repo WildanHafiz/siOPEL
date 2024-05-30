@@ -1,36 +1,55 @@
 <?php
+$conn = mysqli_connect("localhost", "root", "", "db_adminsiopel");
+
+if (!$conn) {
+    echo "koneksi gagal!";
+    die();
+}
+
 session_start();
-$users = array(
-    'admin' => array('password' => 'admin', 'role' => 'admin'),
-    'user' => array('password' => 'user', 'role' => 'user'),
-    'staff' => array('password' => 'staff', 'role' => 'staff')
-);
+// $users = array(
+//     'admin' => array('password' => 'admin', 'role' => 'admin'),
+//     'user' => array('password' => 'user', 'role' => 'user'),
+//     'staff' => array('password' => 'staff', 'role' => 'staff')
+// );
 
 function init_login() {
-    global $users;
+
+    global $conn;
 
     if (isset($_POST['nama']) && isset($_POST['pass'])) {
         $n = trim($_POST['nama']);
         $p = trim($_POST['pass']);
 
-        if (isset($users[$n]) && $users[$n]['password'] === $p) {
+        // Prepare SQL statement to prevent SQL injection
+        $stmt = mysqli_prepare($conn, "SELECT password, role FROM users WHERE username = ?");
+        mysqli_stmt_bind_param($stmt, "s", $n);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if (mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        if ($p === $row['password']) { // Compare plain text passwords (not recommended)
             $_SESSION['login'] = $n;
             $_SESSION['time'] = time();
-            
-            if ($users[$n]['role'] === 'admin') {
-                header('location: ./admin.php');
-            } elseif ($users[$n]['role'] === 'user') {
-                header('location: ./index.php');
-            } elseif ($users[$n]['role'] === 'staff') {
-                header('location: ./staff.php');
+
+            if ($row['role'] === 'admin') {
+            header('location: ./admin.php');
+            } elseif ($row['role'] === 'user') {
+            header('location: ./index.php');
+            } elseif ($row['role'] === 'staff') {
+            header('location: ./staff.php');
             }
             exit;
-        } else {
-            echo 'Nama/Password Tidak Sesuai';
-            return false;
         }
+        }
+
+        echo 'Username/Password is incorrect';
+        mysqli_stmt_close($stmt);
+        return false;
     }
-}
+  }
+  
 
 
 function validate() {
